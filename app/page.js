@@ -1,113 +1,121 @@
-import Image from 'next/image'
+"use client";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import thumbnail from "@/public/thumbnail.svg";
+import course from "@/public/youtube.svg";
+import rating from "@/public/rating.svg";
+import vector from "@/public/vector.svg";
+import { Data } from "@/app/data/data";
 
 export default function Home() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Filter data awal hanya untuk kategori "Web Development"
+    const initialData = Data.filter((item) => item.category === "Web Development");
+    setData(initialData);
+  }, []);
+
+  const filterType = (category) => {
+    setData(
+      Data.filter((item) => {
+        return item.category === category;
+      })
+    );
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="max-w-[1640px] m-auto px-4 py-12">
+      <h1 className="text-black font-bold text-6xl text-center">
+        Top Rated Menu Items
+      </h1>
+      <p className="text-black text-center mt-4">
+        Kuasai berbagai materi dari mentor berpengalaman
+      </p>
+
+      <div className="flex lg:flex-row justify-center">
+        <div className="flex justfiy-between lg:flex-wrap overflow-x-scroll scroll whitespace-nowrap scroll-smooth">
+          <button
+            onClick={() => filterType("Digital Martketing")}
+            className="m-1 border rounded-4xl py-1 lg:px-0 px-5 gap-3.5 h-12 w-48 mt-6 border-black border-solid border-1 text-black bg-white hover:bg-black hover:text-white"
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            Digital Marketing
+          </button>
+          <button
+            onClick={() => filterType("Web Developement")}
+            className="m-1 border rounded-4xl py-1 gap-3.5 h-12 w-48 mt-6 border-black border-solid border-1 text-black bg-white hover:bg-black hover:text-white"
+          >
+            Web Development
+          </button>
+          <button
+            onClick={() => filterType("Graphic Design")}
+            className="m-1 border rounded-4xl py-1 gap-3.5 h-12 w-48 mt-6 border-black border-solid border-1 text-black bg-white hover:bg-black hover:text-white"
+          >
+            Graphic Desain
+          </button>
+          <button
+            onClick={() => filterType("Self Development")}
+            className="m-1 border rounded-4xl py-1 gap-3.5 h-12 w-48 mt-6 border-black border-solid border-1 text-black bg-white hover:bg-black hover:text-white"
+          >
+            Self Development
+          </button>
+          <button
+            onClick={() => filterType("Microsoft Excel")}
+            className="m-1 border rounded-4xl py-1 gap-3.5 h-12 w-48 mt-6 border-black border-solid border-1 text-black bg-white hover:bg-black hover:text-white"
+          >
+            Microsoft Excel
+          </button>
+          <button
+            onClick={() => filterType("UI/UX Design")}
+            className="m-1 border rounded-4xl py-1 gap-3.5 h-12 w-48 mt-6 border-black border-solid border-1 text-black bg-white hover:bg-black hover:text-white"
+          >
+            UI/UX Design
+          </button>
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4 px-28">
+        {data.map((item, index) => (
+          <div
+            key={index}
+            className="border w-69 h-115 shadow-3xl rounded-lg hover:scale-105 duration-300"
+          >
+            <div className="w-full h-[200px] px-4 rounded-t-lg bg-orange-300">
+              <div className="grid grid-cols-2 gap-6 py-14">
+                <h2 className="self-center text-lg text-white font-bold">
+                  {item.name}
+                </h2>
+                <Image
+                  src={thumbnail}
+                  alt={item.name}
+                  height={100}
+                  width={100}
+                />
+              </div>
+            </div>
+            <div className="flex flex-col justify-between px-4 py-4 gap-5">
+              <p className="font-bold text-black text-lg">{item.name}</p>
+              <div className="flex gap-2">
+                <div>
+                  <Image src={course} height={11.728} width={20.991} />
+                  <Image src={vector} height={1.513} width={20.27} />
+                </div>
+                <p className="text-sm text-black font-light">5 Videos</p>
+              </div>
+              <div className="flex gap-2">
+                <Image
+                  className="text-sm text-black font-light"
+                  src={rating}
+                  height={16}
+                  width={21}
+                />
+                <p className="text-sm text-black font-light">4,5/5</p>
+              </div>
+              <h2 className="text-lg text-black font-bold">{item.price}</h2>
+            </div>
+          </div>
+        ))}
       </div>
     </main>
-  )
+  );
 }
