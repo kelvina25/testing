@@ -4,7 +4,7 @@ export const Data = [
         name: 'CSS Introduction',
         image: '/public/thumbnail.png',
         price: 'Rp 150.000',
-        category: 'Web Developement',
+        category: 'Web Development',
     },
 
     {
@@ -12,7 +12,7 @@ export const Data = [
         name: 'CSS Introduction',
         image: '/public/thumbnail.png',
         price: 'Rp 150.000',
-        category: 'Web Developement',
+        category: 'Web Development',
     },
 
     {
@@ -20,7 +20,7 @@ export const Data = [
         name: 'CSS Introduction',
         image: '/public/thumbnail.png',
         price: 'Rp 150.000',
-        category: 'Web Developement',
+        category: 'Web Development',
     },
 
     {
@@ -28,7 +28,7 @@ export const Data = [
         name: 'CSS Introduction',
         image: '/public/thumbnail.png',
         price: 'Rp 150.000',
-        category: 'Web Developement',
+        category: 'Web Development',
     },
 
     {
@@ -36,7 +36,7 @@ export const Data = [
         name: 'Digital Marketing',
         image: '/public/thumbnail.png',
         price: 'Rp 150.000',
-        category: 'Digital Martketing',
+        category: 'Digital Marketing',
     },
 
     {
@@ -44,7 +44,7 @@ export const Data = [
         name: 'Digital Marketing',
         image: '/public/thumbnail.png',
         price: 'Rp 150.000',
-        category: 'Digital Martketing',
+        category: 'Digital Marketing',
     },
 
     {
@@ -52,7 +52,7 @@ export const Data = [
         name: 'Digital Marketing',
         image: '/public/thumbnail.png',
         price: 'Rp 150.000',
-        category: 'Digital Martketing',
+        category: 'Digital Marketing',
     },
 
     {
@@ -60,7 +60,7 @@ export const Data = [
         name: 'Digital Marketing',
         image: '/public/thumbnail.png',
         price: 'Rp 150.000',
-        category: 'Digital Martketing',
+        category: 'Digital Marketing',
     },
 
     {
